@@ -1,97 +1,119 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# WeatherNow - Weather Application
 
-# Getting Started
+**SAIT Mobile Application Development - Phase 4**
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 👥 Team Members
+- **Angelo Pires** - Student ID: 000920614
+- **Jude Uyeno** - Student ID: 000793423
 
-## Step 1: Start Metro
+## 📱 About
+WeatherNow is a comprehensive React Native weather application built for SAIT's Mobile Application Development course (ITSC320). The app provides real-time weather information and 7-day forecasts for cities worldwide.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Features
+- ✅ Real-time weather data via OpenWeather API
+- ✅ 7-day weather forecast
+- ✅ City search functionality
+- ✅ Current location weather (Calgary default)
+- ✅ Customizable settings (temperature units, wind speed units, time format)
+- ✅ Weather alerts and daily forecast notifications
+- ✅ Clean, modern UI with gradient backgrounds
+- ✅ Bottom tab navigation (Home, Forecast, Search, Settings)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🛠️ Technologies
+- React Native 0.76+
+- React Navigation (Bottom Tabs & Native Stack)
+- OpenWeather API
+- AsyncStorage for local data persistence
+- Axios for HTTP requests
+- React Native Vector Icons
+- React Native Screens & Safe Area Context
 
-```sh
-# Using npm
-npm start
+## 📦 Installation
 
-# OR using Yarn
-yarn start
-```
+### Prerequisites
+- Node.js 18+
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
 
-## Step 2: Build and run your app
+### Setup
+```bash
+# Clone repository
+git clone https://github.com/AngeloRXP/WeatherNow-SAIT-Phase4.git
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+# Navigate to project
+cd WeatherNow-SAIT-Phase4
 
-### Android
+# Install dependencies
+npm install
 
-```sh
-# Using npm
+# Run on Android
 npm run android
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# Run on iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 🔑 Configuration
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### OpenWeather API Key
+1. Sign up at https://openweathermap.org/api
+2. Get your free API key
+3. Add it to `src/utils/constants.js`:
+```javascript
+export const OPENWEATHER_API_KEY = 'your_api_key_here';
+```
 
-## Step 3: Modify your app
+## 📱 Screens
 
-Now that you have successfully run the app, let's make changes!
+### 1. Home Screen
+- Current weather conditions
+- Temperature, feels like, and weather description
+- Humidity, wind speed, UV index, and visibility
+- Hourly forecast for next 24 hours
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### 2. Forecast Screen
+- 7-day weather forecast
+- Daily high/low temperatures
+- Weather conditions for each day
+- Detailed forecast on tap
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### 3. Search Screen
+- Search cities worldwide
+- Recent searches history
+- Popular cities quick access
+- Current location button
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### 4. Settings Screen
+- Temperature unit (Celsius/Fahrenheit)
+- Wind speed unit (km/h, m/s, mph)
+- Time format (12h/24h)
+- Notification preferences
+- Favorite locations management
 
-## Congratulations! :tada:
+## 📂 Project Structure
+```
+WeatherNowAppNew/
+├── android/              # Android native code
+├── ios/                  # iOS native code
+├── src/
+│   ├── components/       # Reusable components
+│   ├── screens/          # Main app screens
+│   ├── services/         # API and storage services
+│   └── utils/            # Helper functions and constants
+├── App.js               # Main app component
+└── package.json         # Dependencies
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+## 🎓 Course Information
+- **Course:** ITSC320 - Mobile Application Development
+- **Institution:** Southern Alberta Institute of Technology (SAIT)
+- **Semester:** Fall 2024
+- **Phase:** 4 (Final Project)
 
-### Now what?
+## 📄 License
+Educational project for SAIT - 2024
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🙏 Acknowledgments
+- OpenWeather API for weather data
+- React Native community for excellent documentation
+- SAIT instructors for guidance and support
