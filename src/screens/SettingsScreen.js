@@ -251,7 +251,8 @@ const SettingsScreen = ({ navigation }) => {
 
             <View style={styles.divider} />
 
-            <SettingItem icon="wind" label="Wind Speed Unit">
+            <SettingItem icon="wind" label="Wind Unit">
+              
               <View style={styles.buttonGroup}>
                 {Object.values(WIND_SPEED_UNITS).map((unit) => (
                   <TouchableOpacity
@@ -559,7 +560,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   unitButton: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 11,
     paddingVertical: 8,
     borderRadius: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',

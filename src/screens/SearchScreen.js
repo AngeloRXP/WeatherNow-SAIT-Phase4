@@ -21,7 +21,7 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation'; // COMENTADO
 
-import { searchCities, getCurrentWeatherByCity } from '../services/weatherAPI';
+import { searchCities } from '../services/weatherAPI';
 import {
   saveRecentSearch,
   getRecentSearches,
@@ -69,7 +69,7 @@ const SearchScreen = ({ navigation }) => {
       }
     } catch (error) {
       console.error('Search error:', error);
-      Alert.alert('Search Error', 'Failed to search cities. Please try again.');
+      Alert.alert('Search Error', 'Failed to search for cities. Please try again.');
     } finally {
       setSearching(false);
     }
@@ -96,31 +96,6 @@ const SearchScreen = ({ navigation }) => {
       Alert.alert('Error', 'Failed to select location');
     }
   };
-
-/*
-  const handleUseCurrentLocation = () => {
-    Geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        navigation.navigate('Home', {
-          selectedLocation: {
-            name: 'Current Location',
-            lat: latitude,
-            lon: longitude,
-          },
-        });
-      },
-      (error) => {
-        console.error('Geolocation error:', error);
-        Alert.alert(
-          'Location Error',
-          'Unable to get current location. Please check permissions.'
-        );
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-    );
-  };
-*/
 
 const handleUseCurrentLocation = () => {
   // GPS desabilitado - usando Calgary como padrão
