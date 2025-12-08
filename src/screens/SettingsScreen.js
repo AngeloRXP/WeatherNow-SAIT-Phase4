@@ -15,8 +15,6 @@ import {
   TouchableOpacity,
   Switch,
   Alert,
-  // ImageBackground, // COMMENTED OUT - No background image
-  Linking,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -34,6 +32,16 @@ import {
   TIME_FORMATS,
   DEFAULT_SETTINGS,
 } from '../utils/constants';
+
+const SettingItem = ({ icon, label, children }) => (
+  <View style={styles.settingItem}>
+    <View style={styles.settingLeft}>
+      <Icon name={icon} size={20} color="rgba(255, 255, 255, 0.8)" />
+      <Text style={styles.settingLabel}>{label}</Text>
+    </View>
+    {children}
+  </View>
+);
 
 const SettingsScreen = ({ navigation }) => {
   const [favorites, setFavorites] = useState([]);
@@ -132,23 +140,6 @@ const SettingsScreen = ({ navigation }) => {
       ]
     );
   };
-
-  const SettingItem = ({ icon, label, children }) => (
-    <View style={styles.settingItem}>
-      <View style={styles.settingLeft}>
-        <Icon name={icon} size={20} color="rgba(255, 255, 255, 0.8)" />
-        <Text style={styles.settingLabel}>{label}</Text>
-      </View>
-      {children}
-    </View>
-  );
-
-  const PickerButton = ({ value, onPress, options }) => (
-    <TouchableOpacity style={styles.pickerButton} onPress={onPress}>
-      <Text style={styles.pickerText}>{value}</Text>
-      <Icon name="chevron-down" size={16} color="rgba(255, 255, 255, 0.6)" />
-    </TouchableOpacity>
-  );
 
   return (
     <View style={styles.background}>
