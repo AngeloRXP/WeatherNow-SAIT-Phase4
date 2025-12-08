@@ -22,7 +22,6 @@ import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation'; // coment
 
-import WeatherCard from '../components/WeatherCard';
 import WeatherDetails from '../components/WeatherDetails';
 import HourlyForecast from '../components/HourlyForecast';
 import { getCurrentWeather, getForecast } from '../services/weatherAPI';
@@ -94,29 +93,6 @@ const HomeScreen = ({ navigation }) => {
     await loadWeatherData();
     setRefreshing(false);
   };
-
-/*
-  const getCurrentLocation = () => {
-    Geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        setLocation({
-          name: 'Current Location',
-          lat: latitude,
-          lon: longitude,
-        });
-      },
-      (error) => {
-        console.error('Geolocation error:', error);
-        Alert.alert(
-          'Location Error',
-          'Unable to get current location. Using default location.'
-        );
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-    );
-  };
-*/
 
 const getCurrentLocation = () => {
   // GPS desabilitado - usando Calgary como padrão
