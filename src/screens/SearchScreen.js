@@ -28,6 +28,24 @@ import {
   clearRecentSearches,
 } from '../services/storage';
 
+const LocationCard = ({ location, onPress }) => (
+  <TouchableOpacity
+    style={styles.locationCard}
+    onPress={() => onPress(location)}
+    activeOpacity={0.7}>
+    <View style={styles.locationInfo}>
+      <Icon name="map-pin" size={20} color="#FFFFFF" />
+      <View style={styles.locationText}>
+        <Text style={styles.locationName}>{location.name}</Text>
+        <Text style={styles.locationCountry}>
+          {location.sys?.country || location.country}
+        </Text>
+      </View>
+    </View>
+    <Icon name="chevron-right" size={20} color="rgba(255, 255, 255, 0.6)" />
+  </TouchableOpacity>
+);
+
 const SearchScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searching, setSearching] = useState(false);
@@ -118,23 +136,7 @@ const handleUseCurrentLocation = () => {
     }
   };
 
-  const LocationCard = ({ location, onPress, showWeather = false }) => (
-    <TouchableOpacity
-      style={styles.locationCard}
-      onPress={() => onPress(location)}
-      activeOpacity={0.7}>
-      <View style={styles.locationInfo}>
-        <Icon name="map-pin" size={20} color="#FFFFFF" />
-        <View style={styles.locationText}>
-          <Text style={styles.locationName}>{location.name}</Text>
-          <Text style={styles.locationCountry}>
-            {location.sys?.country || location.country}
-          </Text>
-        </View>
-      </View>
-      <Icon name="chevron-right" size={20} color="rgba(255, 255, 255, 0.6)" />
-    </TouchableOpacity>
-  );
+
 
   return (
     <View style={styles.background}>
