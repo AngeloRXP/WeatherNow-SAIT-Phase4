@@ -65,8 +65,7 @@ const SettingsScreen = ({ navigation }) => {
     Alert.alert(
       'Remove Favorite',
       'Are you sure you want to remove this location from favorites?',
-      [
-        { text: 'Cancel', style: 'cancel' },
+      [{ text: 'Cancel', style: 'cancel' },
         {
           text: 'Remove',
           style: 'destructive',
@@ -79,8 +78,7 @@ const SettingsScreen = ({ navigation }) => {
             }
           },
         },
-      ]
-    );
+    ]);
   };
 
   const handleSettingChange = async (key, value) => {
@@ -98,8 +96,7 @@ const SettingsScreen = ({ navigation }) => {
     Alert.alert(
       'Reset Settings',
       'Are you sure you want to reset all settings to default?',
-      [
-        { text: 'Cancel', style: 'cancel' },
+      [{ text: 'Cancel', style: 'cancel' },
         {
           text: 'Reset',
           style: 'destructive',
@@ -113,16 +110,14 @@ const SettingsScreen = ({ navigation }) => {
             }
           },
         },
-      ]
-    );
+    ]);
   };
 
   const handleClearAllData = () => {
     Alert.alert(
       'Clear All Data',
       'This will remove all favorites, recent searches, and reset settings. Are you sure?',
-      [
-        { text: 'Cancel', style: 'cancel' },
+      [{ text: 'Cancel', style: 'cancel' },
         {
           text: 'Clear',
           style: 'destructive',
@@ -137,8 +132,7 @@ const SettingsScreen = ({ navigation }) => {
             }
           },
         },
-      ]
-    );
+    ]);
   };
 
   return (
