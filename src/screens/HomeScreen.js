@@ -28,6 +28,7 @@ import { getCurrentWeather, getForecast } from '../services/weatherAPI';
 import { getSettings, saveLastLocation } from '../services/storage';
 import { DEFAULT_LOCATION } from '../utils/constants';
 import { formatDate } from '../utils/helpers';
+import { location, setLocation } from '../services/storage';
 
 const HomeScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,6 @@ const HomeScreen = ({ navigation }) => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecastData, setForecastData] = useState(null);
   const [settings, setSettings] = useState(null);
-  const [location, setLocation] = useState(DEFAULT_LOCATION);
 
   // Load settings
   useEffect(() => {
@@ -46,6 +46,7 @@ const HomeScreen = ({ navigation }) => {
   useFocusEffect(
     useCallback(() => {
       loadWeatherData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
   );
 

@@ -12,7 +12,16 @@ import {
   DEFAULT_SETTINGS,
   MAX_FAVORITES,
   MAX_RECENT_SEARCHES,
+  DEFAULT_LOCATION,
 } from '../utils/constants';
+
+import React, { useState } from 'react';
+
+export let location = DEFAULT_LOCATION;
+
+export function setLocation(value) {
+  location = value;
+}
 
 /**
  * Save favorite location

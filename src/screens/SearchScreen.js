@@ -27,6 +27,7 @@ import {
   getRecentSearches,
   clearRecentSearches,
 } from '../services/storage';
+import { location, setLocation } from '../services/storage';
 
 const LocationCard = ({ location, onPress }) => (
   <TouchableOpacity
@@ -93,18 +94,20 @@ const SearchScreen = ({ navigation }) => {
     }
   };
 
-  const handleLocationSelect = async (location) => {
+  const handleLocationSelect = async (loc) => {
     try {
       // Save to recent searches
       await saveRecentSearch({
-        id: location.id,
-        name: location.name,
-        coord: { lat: location.coord?.lat || location.lat, lon: location.coord?.lon || location.lon },
-        sys: { country: location.sys?.country || location.country },
+        id: loc.id,
+        name: loc.name,
+        coord: { lat: loc.coord?.lat || loc.lat, lon: loc.coord?.lon || loc.lon },
+        sys: { country: loc.sys?.country || loc.country },
       });
 
+      setLocation(loc);
+
       // Navigate to home screen with selected location
-      navigation.navigate('Home', { selectedLocation: location });
+      navigation.navigate('Home', { selectedLocation: loc });
 
       // Clear search
       setSearchQuery('');
